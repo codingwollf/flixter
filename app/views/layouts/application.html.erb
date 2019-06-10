@@ -11,6 +11,7 @@
 
   <body>
 
+<div id="flex-content-container">
   <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #e3f2fd;">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,6 +51,15 @@
 <% end %>
 
 <%= yield %>
+</div>
+
+  <div id="footer">
+    <div class="container">
+      <b>Teachers</b>
+      <br />
+      <%= link_to 'Teach a Course', new_instructor_course_path %>
+    </div>
+  </div>
 
   </body>
 </html>
