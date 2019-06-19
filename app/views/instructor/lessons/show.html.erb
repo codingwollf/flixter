@@ -2,6 +2,8 @@
 
 <div class="booyah-box col-10 offset-1">
   <h1><%= current_lesson.title %></h1>
+  <%= image_tag @current_course.image, class: 'img-fluid' %>
+  <br />
   <p>
     <%= current_lesson.subtitle %>
   </p>
