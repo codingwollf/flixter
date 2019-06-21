@@ -31,7 +31,6 @@
             <% section.lessons.each do |lesson| %>
           <div class="lesson">
             <%= link_to lesson_path(lesson) do %>
-            <%= lesson.video.to_s %>
               <b><%= lesson.title %></b>
               -
               <%= lesson.subtitle %>
