@@ -127,11 +127,11 @@
         </button>
         <h4 class="modal-title" id="newLessonModalLabel">Add a new Lesson...</h4>
       </div>
-      <%= simple_form_for @lesson, url: "#", html: {id: 'newLessonForm'} do |x| %>
+      <%= simple_form_for @lesson, url: "#", html: {id: 'newLessonForm'} do |y| %>
         <div class="modal-body">
-        <%= x.input :title %>
-        <%= x.input :subtitle %>
-        <%= x.input :video %>
+        <%= y.input :title %>
+        <%= y.input :subtitle %>
+        <%= y.input :video %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
