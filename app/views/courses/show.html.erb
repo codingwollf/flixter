@@ -7,7 +7,7 @@
   <% end %>
   <br />
   <div class="row">
-  <div class="col-sm-4 col-12 text-center">
+  <div class="booyah-box col-sm-4 col-12 text-center">
     <span class="badge badge-default">
       <%= number_to_currency @course.cost %>
     </span>
@@ -45,7 +45,7 @@
 
 
 
-  <div class="col-sm-8 col-12">
+  <div class="booyah-box col-sm-8 col-12">
     <%= @course.description %>
   </div>
  </div>
@@ -59,8 +59,8 @@
       </h3>
       <div class="row">
         <% section.lessons.rank(:row_order).each do |lesson| %>
-          <div class="col-12 col-sm-6">
-            <div class="lesson text-center">
+          <div class="booyah-box col-12 col-sm-6">
+            <div class="booyah-box lesson text-center">
             <br />
             <%= link_to lesson_path(lesson) do %>
             <b><%= lesson.title %></b>
