@@ -1,17 +1,19 @@
 <br />
 
 <div class="booyah-box col-10 offset-1">
-  <h1>What I'm Learning</h1>
+<% if current_user.enrolled_courses.present? %>
+  <h1><u>What I'm Learning</u></h1>
   <% current_user.enrolled_courses.each do |course| %>
     <h3 class="text-center">
       <%= link_to course.title, course_path(course) %>
     </h3>
     <br />
-    <%= image_tag course.image, class: 'img-fluid' %>
+    <%= image_tag course.image.url, class: 'img-fluid' %>
     <br />
     <div class="row">
       <div class="col-12 col-sm-8">
         <%= course.description %>
+        <br /><br />
       </div>
       <div class="col-12 col-sm-4 text-center">
         <%= link_to "More Info...", course_path(course), class: 'btn btn-lg btn-primary' %>
@@ -20,26 +22,51 @@
     <hr class="col-8 offset-2">
     <br class="clr" />
   <% end %>
+<% end %>
 
-<h1>What I'm Teaching</h1>
-<% current_user.courses.each do |course| %>
-  <h3 class="text-center">
-    <%= link_to course.title, course_path(course) %>
-  </h3>
-  <br />
-  <%= image_tag course.image, class: 'img-fluid' %>
-  <br />
-  <div class="row">
-    <div class="col-12 col-sm-8">
-      <%= course.description %>
+<% if current_user.courses.present? %>
+  <h1><u>What I'm Teaching</u></h1>
+  <% current_user.courses.each do |course| %>
+    <h3 class="text-center">
+      <%= link_to course.title, course_path(course) %>
+    </h3>
+    <br />
+    <%= image_tag course.image.url, class: 'img-fluid' %>
+    <br />
+    <div class="row">
+      <div class="col-12 col-sm-8">
+        <%= course.description %>
+      </div>
+      <br /><br />
+      <div class="col-12 col-sm-4 text-center">
+        <%= link_to "More Info...", course_path(course), class: 'btn btn-lg btn-primary' %>
+      </div>
     </div>
-    <div class="col-12 col-sm-4 text-center">
-      <%= link_to "More Info...", course_path(course), class: 'btn btn-lg btn-primary' %>
-    </div>
-  </div>
-
     <hr class="col-8 offset-2">
     <br class="clr" />
+  <% end %>
+<% end %>
+
+<% if current_user.enrolled_courses.blank? && current_user.courses.blank? %>
+  <div class="text-center">
+    <br />
+    <h3><b>Please sign up for a course!</b></h3>
+    <br />
+    <%= link_to courses_path, class: 'btn btn-success btn-lg' do %> 
+    Click here to take a lesson!
+    <% end %>
+    <br />
+    <br />
+    <h2>Another option is to...</h2>
+    <br />
+    <h3><b>Share your knowledge as a teacher!</b><h3>
+    <br />
+    <%= link_to new_instructor_course_path, class: 'btn btn-outline-primary btn-lg' do %>
+    Create
+    <% end %>
+    <br />
+    <br />
+  </div>
 <% end %>
 
 </div>
